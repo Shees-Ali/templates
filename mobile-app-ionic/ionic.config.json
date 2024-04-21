@@ -1,0 +1,7 @@
+{
+  "name": "greenshop-user",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
