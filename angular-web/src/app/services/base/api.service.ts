@@ -8,8 +8,7 @@ export class ApiService {
   url: string;
 
   constructor(public http: HttpClient) {
-    // this.url = 'https://localhost:7287/api'
-    this.url = 'https://smp-backend20240330215339.azurewebsites.net/api'
+    this.url = 'https://localhost:7287/api'
   }
 
   /* Main functions for making API calls 
