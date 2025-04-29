@@ -1,0 +1,43 @@
+<div
+  class="flex h-screen w-screen absolute top-0 bottom-0 right-0 left-0 overflow-hidden"
+>
+  <div class="fixed-menu shadow-1">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="w-full flex flex-column overflow-x-hidden">
+    <div>
+      <app-topbar></app-topbar>
+    </div>
+    <div
+      class="scrollable-content h-full p-4"
+      [ngClass]="isDarkMode ? 'bg-dark' : 'bg'"
+    >
+      <p-card styleClass="mb-2" header="Simple Card">
+        <p class="m-0">Lorem ipsum dolor sit amet...</p>
+      </p-card>
+
+      <p-button label="Primary" />
+      <p-button label="Secondary" severity="secondary" />
+      <p-button label="Success" severity="success" />
+      <p-button label="Info" severity="info" />
+      <p-button label="Warn" severity="warn" />
+      <p-button label="Help" severity="help" />
+      <p-button label="Danger" severity="danger" />
+      <p-button label="Contrast" severity="contrast" />
+
+      <div class="p-4">
+        <p-drawer [(visible)]="visible" header="Drawer">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+        </p-drawer>
+        <p-button (click)="visible = true" icon="pi pi-arrow-right" />
+      </div>
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+@media screen and (max-width: 820px) {
+  .fixed-menu {
+    display: none !important;
+  }
+}
+
+.fixed-menu {
+  display: block;
+  width: 300px;
+  background-color: var(--surface-card);
+}
+
+:host ::ng-deep {
+  router-outlet + * {
+    height: 100% !important;
+    max-height: 100% !important;
+  }
+}

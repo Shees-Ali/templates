@@ -1,0 +1,42 @@
+.toggle-btn-group {
+  display: flex;
+  align-items: center;
+  background-color: #f5f7fe;
+  border-radius: 20px;
+  padding: 3px;
+  width: 50px; /* Adjust as needed */
+  height: 30px; /* Ensure the height is fixed */
+  align-items: flex-end;
+}
+
+.toggle-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 50%; /* Each button takes half of the div */
+  height: 30px; /* Matches the height of .toggle-btn-group */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; /* Ensure rounded shape */
+  transition: background-color 0.3s ease;
+  border: none !important;
+  width: 30px;
+}
+
+.toggle-btn.active {
+  background-color: #0d4261;
+  border-radius: 20px;
+  width: 30px;
+}
+//::ng-deep .p-button:not(:disabled)
+.toggle-btn:not(.active):hover {
+  background-color: transparent;
+}
+.toggle-btn.active:hover {
+  background-color: #0d4261;
+}
+.toggle-btn img {
+  height: 18px; /* Adjust icon size */
+  width: 18px;
+}

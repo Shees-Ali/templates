@@ -1,4 +1,11 @@
-body {
-  margin: 0 !important;
-  overflow-x: hidden;
-}
+/* Prime Flex */
+@use "primeflex/primeflex.css";
+
+/* Prime Icons */
+@use "primeicons/primeicons.css";
+
+/* Default styling */
+@use "./theme/variables/common";
+@use "./theme/variables/light";
+@use "./theme/variables/dark";
+@use "./theme/core";
