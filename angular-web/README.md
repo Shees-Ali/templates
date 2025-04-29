@@ -1,136 +1,155 @@
-# BlueprintFrontend
+# Angular Web Template
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+A modern Angular 19+ application template with a well-structured project architecture, built-in theming system, and essential services.
 
-## Development server
+## Getting Started
 
-To start a local development server, run:
+### Prerequisites
+
+- Node.js 18+ and npm
+- Angular CLI 19+
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd angular-web
+
+# Install dependencies
+npm install
+```
+
+## Development
+
+### Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`. The application will automatically reload when you change any source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Creating New Components
 
 ```bash
-ng generate component component-name
+ng generate component components/my-component
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Building for Production
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Project Structure
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```
+src/
+├── app/                     # Application code
+│   ├── authentication/      # Authentication components
+│   ├── base/                # Base classes (BasePage)
+│   ├── components/          # Shared components
+│   ├── imports/             # Module imports
+│   ├── interface/           # TypeScript interfaces
+│   ├── layout/              # Layout components
+│   └── services/            # Application services
+├── environments/            # Environment configuration
+├── theme/                   # Theme configuration
+│   ├── variables/           # Theme variables
+│   └── CustomPreset.ts      # PrimeNG theme customization
+└── styles.scss              # Global styles
 ```
 
-## Running end-to-end tests
+## Features
 
-For end-to-end (e2e) testing, run:
+### Theming System
 
-```bash
-ng e2e
-```
+The application includes a complete light/dark theme system built on PrimeNG theming:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Toggle between light and dark modes with `ThemeService`
+- CSS variables for consistent styling
+- Custom PrimeNG theme with color palette customization
 
-## Theme Variables
+### Core Services
 
-The project uses a theming system that supports both light and dark modes. Theme variables are defined in the following files:
+- **ApiService**: HTTP client wrapper for API communication
+- **InterceptorService**: Handles authentication headers
+- **ThemeService**: Manages theme switching
+- **UtilityService**: Common utility functions
+- **StorageService**: Local storage wrapper
+- **NetworkService**: Base service for API communication
 
-### Common Variables (`_common.scss`)
+## Theme Customization
 
-These variables are shared across both light and dark themes:
+### Theme Variables
 
-```scss
---primary-color              # Main brand color
---primary-contrast-color     # Text color to use on primary color backgrounds
---text-color                 # Primary text color
---text-color-secondary       # Secondary/muted text color
---surface-border             # Border color for UI elements
---surface-card               # Background color for cards
---surface-hover              # Background color for hover states
---surface-overlay            # Background for overlays (modals, popovers)
---transition-duration        # Standard transition timing
---maskbg                     # Background for modal backdrops
---content-border-radius      # Standard border radius for content elements
-```
+Variables are defined in three files:
 
-### Light Theme Variables (`_light.scss`)
+- `_common.scss`: Shared variables
+- `_light.scss`: Light theme variables
+- `_dark.scss`: Dark theme variables
 
-These variables are specific to light mode:
-
-```scss
---surface-ground             # Page background color
---code-background            # Background color for code blocks
---code-color                 # Text color for code blocks
-```
-
-### Dark Theme Variables (`_dark.scss`)
-
-These variables are specific to dark mode, applied when the `.dark-mode` class is present:
-
-```scss
---surface-ground             # Darker page background
---code-background            # Background color for code blocks in dark mode
---code-color                 # Text color for code blocks in dark mode
-```
-
-## Using Theme Variables
-
-To use theme variables in your components:
-
-1. Reference them directly in your SCSS files:
+### Using Theme Variables
 
 ```scss
 .my-element {
     background-color: var(--surface-card);
     color: var(--text-color);
     border: 1px solid var(--surface-border);
-    border-radius: var(--content-border-radius);
-    transition: background-color var(--transition-duration);
-}
-
-.my-element:hover {
-    background-color: var(--surface-hover);
 }
 ```
 
-2. To switch between light and dark themes, use the `ThemeService`:
+### Customizing Colors
+
+Modify `CustomPreset.ts` to change the color palettes:
 
 ```typescript
-// Inject the service
-constructor(private themeService: ThemeService) {}
+// Primary color palette
+const primaryPalette = palette("#0163FF");
 
-// Toggle theme
-toggleTheme() {
-    this.themeService.toggleDarkMode();
-}
-
-// Get current theme
-isDarkMode = this.themeService.isDarkModeEnabled();
+// Secondary color palette
+const secondaryPalette = palette("#8B173A");
 ```
 
-## Additional Resources
+## UI Components
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The template uses PrimeNG components for a consistent and responsive UI:
+
+- Buttons, cards, and form controls
+- Data tables and pagination
+- Modals and drawers
+- Navigation components
+
+## Base Page Class
+
+Components can extend the `BasePage` class to gain access to common services:
+
+```typescript
+export class MyComponent extends BasePage {
+    constructor(injector: Injector) {
+        super(injector);
+        // Access services like: this.themeService, this.utility, etc.
+    }
+}
+```
+
+## Testing
+
+```bash
+# Run unit tests
+ng test
+
+# Run e2e tests (requires setting up an e2e framework)
+ng e2e
+```
+
+## Additional Documentation
+
+- [Angular Documentation](https://angular.dev)
+- [PrimeNG Documentation](https://primeng.org)
+- [PrimeFlex Documentation](https://primeflex.org)
